@@ -10,13 +10,14 @@ import employeeRouter from "./routes/employeeRoute.js"
 import eventRouter from "./routes/eventRoute.js"
 import leaveRouter from "./routes/leaveRoute.js"
 import taskRouter from "./routes/taskRoute.js"
-
+import path from "path"
 
 
 const app = express()
 
 const PORT = 2500
 
+const __dirname = path.resolve()
 
 // middleware
 app.use(cors())
@@ -47,6 +48,14 @@ app.use("/api/leave", leaveRouter)
 app.use("/api/task", taskRouter)
 
 
+app.use(express.static(path.join(__dirname ,`/client/dist`)))
+
+
+app.get('*',(req,res) => {
+
+    res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'))
+    
+})
 
 
 // API
