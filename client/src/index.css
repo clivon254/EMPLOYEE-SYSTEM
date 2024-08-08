@@ -1,0 +1,24 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.contain{
+    @apply shadow-xl rounded-xl border border-gray-100 dark:border-gray-600 w-full mx-auto my-5 px-6 py-4
+}
+
+.containing
+{
+    @apply w-full px-6 py-8 shadow-md border border-gray-50/20 rounded
+}
+
+.title
+{
+    @apply text-4xl lg:text-5xl  font-semibold tracking-wider text-gray-800 dark:text-white mb-5  text-center
+}
+
+.subtitle
+{
+    @apply  text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-wide text-gray-600 dark:text-white capitalize mb-3 text-center
+}
