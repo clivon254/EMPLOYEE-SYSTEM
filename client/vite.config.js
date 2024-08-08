@@ -6,7 +6,7 @@ export default defineConfig({
   server:{
     proxy:{
       '/api':{
-        target:'http://localhost:2500',
+        target:'https://employee-system-backend-s1tt.onrender.com',
         secure:false
       }
     }
