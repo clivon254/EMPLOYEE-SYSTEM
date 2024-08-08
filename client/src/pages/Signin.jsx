@@ -60,7 +60,7 @@ export default function SignIn()
             {
                 dispatch(signInFailure(res.data.message))
 
-                toast.error("error at the api")
+                toast.error("WRONG PASSWEORD OR EMAIL")
             }
         }
         catch(error)
