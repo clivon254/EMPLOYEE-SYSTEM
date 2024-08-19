@@ -119,14 +119,16 @@ export const forgotpassword = async (req,res,next) => {
         {
             return next(errorHandler(404,'user not found'))
         }
+
         const secrete = process.env.JWT_SECRETE + user.password;
 
         const token = jwt.sign(
                      {email:user.email, id:user._id},
                      secrete,
-                    )
+                    ) 
                 
         const link = `http://localhost:2500/api/auth/reset-password/${user._id}/${token}`
+        
         
         var transporter = nodemailer.createTransport({
             service:"gmail",
@@ -136,7 +138,6 @@ export const forgotpassword = async (req,res,next) => {
             } 
         });
 
-        
 
         var mailOptions = {
             from:"clivon84@gmail.com",
