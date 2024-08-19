@@ -11,7 +11,11 @@ import eventRouter from "./routes/eventRoute.js"
 import leaveRouter from "./routes/leaveRoute.js"
 import taskRouter from "./routes/taskRoute.js"
 import path from "path"
-
+import nodemailer from "nodemailer"
+import Employee from "./models/employeeModel.js"
+import bcryptjs from "bcryptjs"
+import jwt from "jsonwebtoken"
+import { errorHandler } from "./utils/error.js"
 
 const app = express()
 

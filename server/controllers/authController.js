@@ -122,6 +122,7 @@ export const forgotpassword = async (req,res,next) => {
 
         const secrete = process.env.JWT_SECRETE + user.password;
 
+        
         const token = jwt.sign(
                      {email:user.email, id:user._id},
                      secrete,
@@ -129,7 +130,7 @@ export const forgotpassword = async (req,res,next) => {
                 
         const link = `http://localhost:2500/api/auth/reset-password/${user._id}/${token}`
         
-        
+
         var transporter = nodemailer.createTransport({
             service:"gmail",
             auth:{
@@ -157,6 +158,7 @@ export const forgotpassword = async (req,res,next) => {
             }
         })
 
+        console.log(link)
         
     }   
     catch(error)
@@ -182,7 +184,7 @@ export const resetpassword = async (req,res,next) => {
 
         const secrete = process.env.JWT_SECRETE + user.password 
 
-        const verify = jwt.verify(token ,secrete)
+        const verify = jwt.verify(token ,secrete) 
 
         res.render("index", {email:verify.email, status:"Not verified"})
 
@@ -193,6 +195,7 @@ export const resetpassword = async (req,res,next) => {
     }
 
 }
+
 
 export const setnewPassword = async (req,res,next) => {
 
