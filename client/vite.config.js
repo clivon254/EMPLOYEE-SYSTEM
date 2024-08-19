@@ -6,7 +6,7 @@ export default defineConfig({
   server:{
     proxy:{
       '/api':{
-        target:'https://real-estate-7las.onrender.com',
+        target:'https://employee-system-backend-s1tt.onrender.com',
         secure:true
       }
     }
